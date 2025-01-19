@@ -101,6 +101,9 @@ Youtube:https://www.youtube.com/watch?v=fNW4o-oddM8
 Python sertifikası:[Sıfırdan_İleri_Seviye_Python_Programlama_Sertifika.pdf](https://github.com/user-attachments/files/18468400/Sifirdan_Ileri_Seviye_Python_Programlama_Sertifika.pdf)
 
 
+
+
+
 Ad:Çiğdem Avcı
 
 Numara:20360858035
