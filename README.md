@@ -1,83 +1,46 @@
 Makine Öğrenmesi Projesi: Veri Kazıma ve Model Uygulama
-Bu proje, çeşitli makine öğrenmesi algoritmalarını kullanarak veri kazıma (web scraping) yöntemleri ile elde edilen verilerin işlenmesini, analize edilmesini ve uygun modellerle sınıflandırma ya da tahmin yapılmasını hedeflemektedir. Veriler üzerinde yapılan analizler, sonuçların değerlendirilmesi ve yorumlanması bu projenin ana hedeflerini oluşturur.
-
-Proje İçeriği
-Veri Kazıma (Web Scraping)
-
-İnternetten veri kazıma işlemi, veri kaynağının doğruluğu ve anlamlılığı göz önünde bulundurularak yapılmıştır. Kullanılacak veri kaynağının seçiminde, daha önce analiz yapılmamış bir kaynak tercih edilmiştir.
-Elde edilen veri, ürün açıklamaları, fiyatlar, yorumlar, puanlar ve kargo bilgilerini içermektedir. Bu veriler, daha sonra veri analizi ve makine öğrenmesi süreçlerinde kullanılacaktır.
-Veri Temizleme ve Hazırlama
-
-Elde edilen veriler, veri analizi yapılmadan önce temizlenmiştir. Eksik ve hatalı veriler düzenlenmiş, sayısal veriler (fiyat, puan, favori sayısı vb.) uygun formatlara dönüştürülmüştür.
-Verilerin normalize edilmesi ve eksik değerlerin doldurulması, bu aşamanın önemli bir parçasıdır. Ayrıca, veri setinin anlaşılabilirliği için gereksiz sütunlar temizlenmiştir.
-Makine Öğrenmesi Modelleri
-
-Veri setinin doğruluğu artırıldıktan sonra, farklı makine öğrenmesi algoritmaları kullanılarak tahminler ve sınıflandırmalar yapılmıştır.
-Linear Regression (Doğrusal Regresyon): Fiyat tahminini yapmak için doğrusal regresyon modeli kullanılmıştır.
-Random Forest: Verilerin daha karmaşık ilişkilerini öğrenebilen bir modeldir. Bu model, tahminlerin doğruluğunu artırmaya yöneliktir.
-Gradient Boosting: Gradient Boosting, her adımda hataları düzeltmeye çalışan bir algoritmadır ve yüksek doğruluk sağlar.
-K-Nearest Neighbors (KNN): Komşu algoritmasıyla, verilerin sınıflandırılmasında kullanılan bir diğer yöntemdir.
-Support Vector Regression (SVR): Fiyat tahmininde kullanılan diğer önemli bir regresyon algoritmasıdır.
-Optimizasyon
-
-Modellerin doğruluğunu artırmak amacıyla Optuna kütüphanesi kullanılarak hiperparametre optimizasyonu yapılmıştır. Bu, her modelin daha iyi tahminler yapabilmesi için parametrelerin en iyi şekilde ayarlanmasını sağlar.
-Sonuçların Değerlendirilmesi
-
-Elde edilen sonuçlar, her modelin doğruluk, hata oranları (MAE, RMSE, R²) ile değerlendirilmiştir.
-Modellerin karşılaştırılması yapılmış, hangi modelin daha iyi performans gösterdiği belirlenmiştir.
-Görselleştirmeler ile model performansları ve ilişkiler detaylandırılmıştır.
-
+Bu proje, makine öğrenmesi algoritmaları kullanılarak veri kazıma (web scraping) yoluyla elde edilen verilerin işlenmesini, analiz edilmesini ve modellerle sınıflandırılmasını veya tahmin edilmesini amaçlamaktadır. Proje boyunca veri işleme adımları, makine öğrenmesi modellerinin kurulması ve optimizasyonu gibi birçok konu ele alınmış, elde edilen sonuçlar yorumlanmıştır.
 Proje Adımları
 1. Veri Kazıma (Web Scraping)
-İlk adım olarak, projede kullanacağımız veriyi internetten kazıdık. Bunun için, Trendyol'un kadın çanta kategorisini seçtik çünkü burada çok sayıda ürün ve bu ürünlere ait fiyat, puan, açıklama gibi veriler mevcut. Bu veriler, fiyat tahminleri yapmak için çok anlamlı olacaktır.
-
-Veri Kaynağının Seçimi: Trendyol, popüler ve geniş ürün yelpazesi sunan bir platform olduğundan, burada ürünler hakkında detaylı bilgilere ulaşmak mümkün. Bu nedenle, Trendyol'dan kadın çantalarının verilerini topladık.
-
-HTML Yapısının İncelenmesi: Verileri kazıyabilmek için önce siteyi inceledik. Ürün başlıkları, fiyatları, puanları ve açıklamaları gibi bilgilerin hangi HTML etiketlerinde yer aldığını belirledik. Bu, veri kazıma sürecini doğru yapabilmemiz için çok önemliydi.
-
-Veri Kazıma Süreci: requests kütüphanesiyle siteye istek gönderip, gelen yanıtı BeautifulSoup kullanarak işledik. Her ürünün başlığı, fiyatı, marka adı gibi bilgilerini bu yöntemle çektik.
-
-Veri Toplama ve Kaydetme: Ürün bilgilerini topladıktan sonra, bu verileri CSV formatında sakladık. Sayfaların tümünü kazıyabilmek için sayfalama yaparak çok sayıda ürünün bilgilerini topladık.
-
+Projede ilk olarak, veriler Trendyol'un "kadın çanta" kategorisinden kazınmıştır. Bu kategori, ürün başlıkları, fiyatları, puanları ve diğer bilgiler açısından zengin bir veri kaynağı sunmaktadır.
+•	Veri Kaynağının Seçimi: Trendyol, çok sayıda ürünü ve detaylı bilgileri ile analiz için uygun bir platformdur.
+•	HTML Yapısının Analizi: Site öncelikle HTML etiketleri incelenerek, gerekli bilgilerin hangi alanlarda yer aldığı belirlenmiştir.
+•	Veri Kazıma Araçları: requests kütüphanesi ile HTTP istekleri yapılmış, gelen yanıtlar BeautifulSoup yardımıyla işlenmiştir. Ürünlerin başlık, fiyat ve puan gibi bilgileri toplanıp, CSV dosyasına kaydedilmiştir.
+•	Sayfalama: Daha fazla veri elde etmek için sayfalama teknikleri kullanılarak, çok sayıda ürün verisi kazınmıştır.
 2. Veri Temizleme ve Hazırlama
-Veriyi kazandıktan sonra, bu veriyi makine öğrenmesi modellerine uygun hale getirmemiz gerekti. Veri genellikle eksik, hatalı ya da format açısından düzgün olmuyor. İşte bu aşamada bu sorunları çözdük.
-
-Eksik Verilerle Baş Etme: Web scraping sırasında bazı ürünlerde fiyat, puan ya da açıklama gibi bilgiler eksik olabiliyor. Bu eksik verileri ya ortalama ile doldurduğumuz ya da o ürünleri veri setimizden çıkardık. Bu sayede, eksik veri sorunu çözüldü.
-
-Veri Formatlarının Düzeltilmesi: Çoğu zaman veriler, işlem yapmaya uygun formatta olmuyor. Örneğin, fiyatlar string (metin) formatında geliyordu, bu yüzden bunları sayıya dönüştürdük. Ayrıca kategorik verileri, yani metinlerden oluşan verileri sayısal değerlere dönüştürdük.
-
-Aykırı Değerlerin Tespiti ve Temizlenmesi: Verideki anormal değerler, yani aykırı değerler (örneğin, aşırı yüksek fiyatlar veya sıfır puanlar), modelin doğruluğunu olumsuz etkileyebilir. Bu yüzden aykırı değerleri görselleştirip tespit ettik ve temizledik.
-
-Veri Normalizasyonu: Makine öğrenmesi modelleri için verilerin belirli bir ölçeğe getirilmesi gerekebiliyor. Bu yüzden fiyat gibi sayısal verileri normalize ettik, yani 0 ile 1 arasında bir değere dönüştürdük. Bu, modellerin daha doğru sonuçlar vermesini sağladı.
-
+Kazınan veriler, makine öğrenmesi modelleri ile çalışabilir hale getirilmiştir.
+•	Eksik Veriler: Fiyat, puan veya ürün açıklaması gibi eksik bilgiler ya ortalama ile doldurulmuş ya da ilgili veriler setten çıkarılmıştır.
+•	Veri Formatının Düzenlenmesi: Fiyatlar gibi metinsel formatta gelen veriler, sayısal formata dönüştürülmüştür. Kategorik veriler sayısal kodlara (örneğin, "one-hot encoding") dönüştürülmüştür.
+•	Aykırı Değerlerin Temizlenmesi: Fiyatlar veya puanlar gibi alanlarda normalin dışında kalan veriler tespit edilmiş ve veri setinden kaldırılmıştır.
+•	Normalizasyon: Veriler, modellerin daha dengeli öğrenebilmesi için normalize edilmiş (0-1 arasına çekilmiştir).
 3. Makine Öğrenmesi Modelleri
-Veriyi temizledikten sonra, analiz için üç farklı makine öğrenmesi algoritması uyguladık. Bu algoritmaların her biri, veriden farklı şekilde öğrenir ve tahminler yapar.
-
-Doğrusal Regresyon (Linear Regression):
-
-Bu model, bağımsız değişkenlerin (örneğin, puan, marka, açıklama uzunluğu gibi) bir bağımlı değişken (fiyat) üzerindeki etkisini öğrenir.
-Bu model ile, ürünlerin fiyatlarını tahmin etmeye çalıştık. Doğrusal ilişkileri bulmak için kullanışlı bir modeldi. Modelin başarısını R² skoru ve MAE (Mean Absolute Error) gibi metriklerle değerlendirdik.
-Random Forest (Rastgele Orman):
-
-Random Forest, çok sayıda karar ağacından oluşan bir modeldir. Her ağaç, veriyi farklı şekilde işler ve sonrasında bu ağaçların sonuçları birleştirilir. Bu model, karmaşık ilişkileri anlamada oldukça başarılıdır.
-Bu modeli fiyat tahminlerinde kullandık. Hem kategorik hem de sayısal verilerle iyi sonuçlar elde ettik. Modelin doğruluğunu Mean Squared Error (MSE) ve R² skoru ile ölçtük.
-Gradient Boosting:
-
-Gradient Boosting, zayıf öğrenicilerden (decision tree gibi küçük modeller) oluşur ve her adımda bir önceki modelin hatalarını düzeltmeye çalışır. Bu, daha doğru sonuçlar almak için etkili bir yöntemdir.
-Bu modeli de fiyat tahmininde kullandık ve sonuçlar oldukça iyiydi. RMSE (Root Mean Squared Error) ve R² skoru metrikleri ile modelin başarısını değerlendirdik.
-K-Nearest Neighbors (KNN):
-
-KNN, veri noktalarını birbirine yakın olanlarla karşılaştırarak tahminler yapar. Bu, özellikle benzer ürünlerin fiyatlarını tahmin etmede çok faydalı olabilir.
-Bu modeli de fiyat tahmininde kullandık. F1 skoru ve MAE ile modelin doğruluğunu test ettik.
+Hazırlanan veri seti, farklı makine öğrenmesi modelleri ile analiz edilmiştir. Kullanılan modeller ve öne çıkan özellikleri şunlardır:
+1. Random Forest Regressor
+•	Birden fazla karar ağacının birleştirilmesi ile tahminlerde daha doğru ve dengeli sonuçlar vermektedir.
+•	Aşırı öğrenme (overfitting) riskini azaltmak için rastgele örnekleme ve özellik seçimi tekniklerini kullanır.
+2. Gradient Boosting Regressor
+•	Bir dizi modeli ardışık olarak oluşturur ve her model, bir önceki modelin hatalarını öğrenerek daha doğru tahminler yapar.
+3. K-Nearest Neighbors (KNN - Regresyon)
+•	Veri noktasının en yakın komşularına bakarak tahmin yapar. Ancak, büyük veri setlerinde veya yüksek boyutlu verilerde performans kaybı yaşar.
+4. Random Forest Classifier
+•	Karar ağaçlarını birleştirerek sınıflandırma problemlerinde doğruluğu artırır ve karmaşık veri yapılarında etkili sonuçlar sağlar.
 4. Optimizasyon (Hiperparametre Ayarlama)
-Makine öğrenmesi modellerinin performansını iyileştirmek için hiperparametre optimizasyonu yaptık. Hiperparametreler, modelin eğitim sürecinde kullanılan ayarlardır ve doğru değerlerle model daha iyi sonuçlar verebilir.
+Modellerin performansını iyileştirmek için Optuna kütüphanesi kullanılmıştır. Bu kütüphane, hiperparametrelerin en verimli şekilde seçilmesine yardımcı olur. Bu sayede, her modelin tahmin başarısı artmış ve daha doğru sonuçlar elde edilmiştir.
+5. Sonuçlar
+Farklı modeller, aşağıdaki performans metrikleri ile karşılaştırılmıştır:
+•	MAE (Ortalama Mutlak Hata): Tahminlerin gerçek değerlere ortalama sapması.
+•	MSE (Ortalama Kare Hata): Hataların kareleri alınarak hesaplanan ortalama.
+•	R² (Determinasyon Katsayısı): Modelin veri setini açıklama oranı.
+•	MAPE (Ortalama Yüzde Hata): Gerçek değerlere oranla ortalama yüzde hata oranı.
+Model	MAE	MSE	R²	MAPE
+Random Forest	236.15	162,307.46	0.899	19.40%
+Gradient Boosting	261.50	165,060.09	0.897	31.02%
+KNN	250.53	208,897.29	0.870	99.79%
+Random Forest Classifier	0.23	0.33	0.830	13.92%
+En İyi Modeller
+1.	Regresyon Problemi: Random Forest, en düşük hata oranları ve en yüksek R² (%89.9) ile en başarılı modeldir.
+2.	Sınıflandırma Problemi: Random Forest Classifier, düşük MAPE (%13.92) ve MAE (%0.23) değerleriyle sınıflandırma problemlerinde en iyi sonucu vermiştir.
+Bu proje, farklı makine öğrenmesi modellerinin regresyon ve sınıflandırma problemlerinde nasıl performans gösterdiğini ortaya koymuş, veri işleme ve analiz süreçlerinin önemini gözler önüne sermiştir.
 
-Optuna Kullanımı: Bu işlem için Optuna kütüphanesini kullandık. Optuna, hiperparametrelerin daha verimli bir şekilde ayarlanmasını sağlar. Bu sayede, her modelin parametrelerini test ederek en iyi sonuçları elde ettik.
-5. Sonuçların Değerlendirilmesi
-Modelin başarılarını değerlendirdik ve sonuçları anlamak için birkaç metrik kullandık:
-
-Model Karşılaştırması: Farklı modelleri karşılaştırarak, en iyi sonucu veren modeli belirledik.
-Görselleştirmeler: Modellerin tahminlerini ve doğruluklarını görselleştirdik. Örneğin, doğru tahminlerin ve hatalı tahminlerin görsel olarak nasıl dağıldığını gösteren grafikler oluşturduk.
-Sonuç olarak, her bir modelin performansını ölçtük ve en iyi tahminleri yapan modeli belirledik. Proje boyunca öğrendiğimiz yöntemleri kullanarak, veriyi analiz ettik ve makinelerimizin nasıl daha iyi tahminler yapabileceğini gösterdik.
-
-Bu şekilde, her adımı daha anlaşılır ve insana yakın bir dilde yazdım. Umarım faydalı olur! parametre kombinasyonu belirlenmiştir.  
+![image](https://github.com/user-attachments/assets/ed432672-2ace-4834-aff0-71d94adbe9fc)
+  
