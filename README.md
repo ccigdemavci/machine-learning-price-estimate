@@ -7,13 +7,13 @@ Projede ilk olarak, veriler Trendyol'un "kadın çanta" kategorisinden kazınmı
 •	HTML Yapısının Analizi: Site öncelikle HTML etiketleri incelenerek, gerekli bilgilerin hangi alanlarda yer aldığı belirlenmiştir.
 •	Veri Kazıma Araçları: requests kütüphanesi ile HTTP istekleri yapılmış, gelen yanıtlar BeautifulSoup yardımıyla işlenmiştir. Ürünlerin başlık, fiyat ve puan gibi bilgileri toplanıp, CSV dosyasına kaydedilmiştir.
 •	Sayfalama: Daha fazla veri elde etmek için sayfalama teknikleri kullanılarak, çok sayıda ürün verisi kazınmıştır.
-2. Veri Temizleme ve Hazırlama
+3. Veri Temizleme ve Hazırlama
 Kazınan veriler, makine öğrenmesi modelleri ile çalışabilir hale getirilmiştir.
 •	Eksik Veriler: Fiyat, puan veya ürün açıklaması gibi eksik bilgiler ya ortalama ile doldurulmuş ya da ilgili veriler setten çıkarılmıştır.
 •	Veri Formatının Düzenlenmesi: Fiyatlar gibi metinsel formatta gelen veriler, sayısal formata dönüştürülmüştür. Kategorik veriler sayısal kodlara (örneğin, "one-hot encoding") dönüştürülmüştür.
 •	Aykırı Değerlerin Temizlenmesi: Fiyatlar veya puanlar gibi alanlarda normalin dışında kalan veriler tespit edilmiş ve veri setinden kaldırılmıştır.
 •	Normalizasyon: Veriler, modellerin daha dengeli öğrenebilmesi için normalize edilmiş (0-1 arasına çekilmiştir).
-3. Makine Öğrenmesi Modelleri
+5. Makine Öğrenmesi Modelleri
 Hazırlanan veri seti, farklı makine öğrenmesi modelleri ile analiz edilmiştir. Kullanılan modeller ve öne çıkan özellikleri şunlardır:
 1. Random Forest Regressor
 •	Birden fazla karar ağacının birleştirilmesi ile tahminlerde daha doğru ve dengeli sonuçlar vermektedir.
@@ -26,7 +26,7 @@ Hazırlanan veri seti, farklı makine öğrenmesi modelleri ile analiz edilmişt
 •	Karar ağaçlarını birleştirerek sınıflandırma problemlerinde doğruluğu artırır ve karmaşık veri yapılarında etkili sonuçlar sağlar.
 4. Optimizasyon (Hiperparametre Ayarlama)
 Modellerin performansını iyileştirmek için Optuna kütüphanesi kullanılmıştır. Bu kütüphane, hiperparametrelerin en verimli şekilde seçilmesine yardımcı olur. Bu sayede, her modelin tahmin başarısı artmış ve daha doğru sonuçlar elde edilmiştir.
-5. Sonuçlar
+6. Sonuçlar
 Farklı modeller, aşağıdaki performans metrikleri ile karşılaştırılmıştır:
 •	MAE (Ortalama Mutlak Hata): Tahminlerin gerçek değerlere ortalama sapması.
 •	MSE (Ortalama Kare Hata): Hataların kareleri alınarak hesaplanan ortalama.
@@ -42,5 +42,10 @@ En İyi Modeller
 2.	Sınıflandırma Problemi: Random Forest Classifier, düşük MAPE (%13.92) ve MAE (%0.23) değerleriyle sınıflandırma problemlerinde en iyi sonucu vermiştir.
 Bu proje, farklı makine öğrenmesi modellerinin regresyon ve sınıflandırma problemlerinde nasıl performans gösterdiğini ortaya koymuş, veri işleme ve analiz süreçlerinin önemini gözler önüne sermiştir.
 
-![image](https://github.com/user-attachments/assets/ed432672-2ace-4834-aff0-71d94adbe9fc)
-  
+Youtube:
+Python sertifikası:
+
+
+
+
+
