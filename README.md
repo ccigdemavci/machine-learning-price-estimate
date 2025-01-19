@@ -52,25 +52,51 @@ Modellerin performansını iyileştirmek için Optuna kütüphanesi kullanılmı
 
 5. Sonuçlar
 
-Farklı modeller, aşağıdaki performans metrikleri ile karşılaştırılmıştır:
+Bu projede, farklı makine öğrenmesi modellerinin performansları, regresyon ve sınıflandırma problemleri için analiz edilmiştir. Modeller aşağıdaki metrikler kullanılarak değerlendirilmiştir:
 
-•	MAE (Ortalama Mutlak Hata): Tahminlerin gerçek değerlere ortalama sapması.
+MAE (Ortalama Mutlak Hata): Tahminlerin gerçek değerlere olan ortalama mutlak sapmasını ifade eder. Daha düşük değer, daha iyi performans anlamına gelir.
 
-•	MSE (Ortalama Kare Hata): Hataların kareleri alınarak hesaplanan ortalama.
+MSE (Ortalama Kare Hata): Büyük hatalara daha fazla ağırlık veren bir metriktir. Düşük MSE, modelin daha doğru olduğunu gösterir.
 
-•	R² (Determinasyon Katsayısı): Modelin veri setini açıklama oranı.
+R² (Determinasyon Katsayısı): Modelin veri setindeki değişkenliği ne kadar iyi açıkladığını gösterir. Değeri 1'e ne kadar yakınsa model o kadar başarılıdır.
 
-•	MAPE (Ortalama Yüzde Hata): Gerçek değerlere oranla ortalama yüzde hata oranı.
+MAPE (Ortalama Yüzde Hata): Modelin tahminlerinin, gerçek değerlere göre yüzdelik sapma oranıdır. Daha düşük MAPE, daha doğru bir model anlamına gelir.
 
-En İyi Modeller
 
- Regresyon Problemi: Random Forest, en düşük hata oranları ve en yüksek R² (%89.9) ile en başarılı modeldir.
+Regresyon Modelleri:
 
- Sınıflandırma Problemi: Random Forest Classifier, düşük MAPE (%13.92) ve MAE (%0.23) değerleriyle sınıflandırma problemlerinde en iyi sonucu vermiştir.
+Random Forest Regressor:
+En düşük MAE ve MSE değerleri ile en iyi performansı göstermiştir. R² değeri (%89.9) ile veri setini en iyi şekilde açıklamıştır.
 
-Bu proje, farklı makine öğrenmesi modellerinin regresyon ve sınıflandırma problemlerinde nasıl performans gösterdiğini ortaya koymuş, veri işleme ve analiz süreçlerinin önemini gözler önüne sermiştir.
+MAPE oranı da (%19.40) diğer regresyon modellerine göre oldukça düşüktür.
 
-Youtube:
+Sonuç: Regresyon problemleri için en başarılı modeldir.
+
+
+Gradient Boosting Regressor:
+Random Forest modeline kıyasla biraz daha yüksek hata oranlarına sahiptir. Ancak MSE ve R² açısından tatmin edici sonuçlar sunmuştur.
+
+KNN:
+Tüm regresyon modelleri arasında en düşük performansı göstermiştir. Özellikle MAPE oranının (%99.79) yüksek olması, modelin tahminlerde tutarsız olduğunu göstermektedir.
+
+
+Sınıflandırma Modelleri:
+
+Random Forest Classifier:
+Düşük MAE (%0.23) ve MAPE (%13.92) değerleri ile sınıflandırma problemleri için en iyi performansı göstermiştir.
+R² değeri (%83.0) sınıflandırma problemleri için oldukça iyidir.
+
+En İyi Modeller:
+
+Regresyon Problemi:
+
+Random Forest Regressor, en yüksek R² (%89.9) ve en düşük hata oranları ile açık ara en başarılı modeldir.
+
+Sınıflandırma Problemi:
+
+Random Forest Classifier, düşük MAPE (%13.92) ve MAE (%0.23) ile en iyi sınıflandırma modelidir.
+
+Youtube:https://www.youtube.com/watch?v=fNW4o-oddM8
 
 Python sertifikası:[Sıfırdan_İleri_Seviye_Python_Programlama_Sertifika.pdf](https://github.com/user-attachments/files/18468400/Sifirdan_Ileri_Seviye_Python_Programlama_Sertifika.pdf)
 
