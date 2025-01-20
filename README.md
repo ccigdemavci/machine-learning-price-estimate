@@ -21,7 +21,7 @@ Projede ilk olarak, veriler Trendyol'un "kadın çanta" kategorisinden kazınmı
 
 •Eksik Veriler: Fiyat bilgisi olmayan satırlar kaldırılldı, puan veya yorum sayısı gibi eksik bilgiler sıfırla dolduruldu.
 
-•	Veri Formatının Düzenlenmesi: Fiyatlar gibi metinsel formatta gelen veriler, sayısal formata dönüştürülmüştür. Kategorik veriler sayısal kodlara (örneğin, "one-hot encoding") dönüştürülmüştür.Marka string değerleri LabelEncoder() kullanarak de sayısal hale getirildi.
+•	Veri Formatının Düzenlenmesi: Fiyatlar gibi metinsel formatta gelen veriler, sayısal formata dönüştürülmüştür.Marka string değerleri LabelEncoder() kullanarak de sayısal hale getirildi.
 
 •	Aykırı Değerlerin Temizlenmesi: Fiyatlar veya puanlar gibi alanlarda normalin dışında kalan veriler tespit edilmiş ve veri setinden kaldırılmıştır.
 
