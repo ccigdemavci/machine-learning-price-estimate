@@ -17,7 +17,7 @@ Projede ilk olarak, veriler Trendyol'un "kadın çanta" kategorisinden kazınmı
 
 
 2. Veri Temizleme ve Hazırlama
-•Kazınan veriler, makine öğrenmesi modelleri ile çalışabilir hale getirilmiştir.
+•Kazınan veriler, makine öğrenmesi modelleri için çalışabilir hale getirilmiştir.
 
 •Eksik Veriler: Fiyat, puan veya ürün açıklaması gibi eksik bilgiler ya ortalama ile doldurulmuş ya da ilgili veriler setten çıkarılmıştır.
 
@@ -28,7 +28,7 @@ Projede ilk olarak, veriler Trendyol'un "kadın çanta" kategorisinden kazınmı
 •	Normalizasyon: Veriler, modellerin daha dengeli öğrenebilmesi için normalize edilmiş (0-1 arasına çekilmiştir).
 
 
-4. Makine Öğrenmesi Modelleri
+3. Makine Öğrenmesi Modelleri
 Hazırlanan veri seti, farklı makine öğrenmesi modelleri ile analiz edilmiştir. Kullanılan modeller ve öne çıkan özellikleri şunlardır:
  
 	 Random Forest Regressor
@@ -45,7 +45,7 @@ Hazırlanan veri seti, farklı makine öğrenmesi modelleri ile analiz edilmişt
 •	Karar ağaçlarını birleştirerek sınıflandırma problemlerinde doğruluğu artırır ve karmaşık veri yapılarında etkili sonuçlar sağlar.
 
 
-3. Optimizasyon (Hiperparametre Ayarlama)
+4. Optimizasyon (Hiperparametre Ayarlama)
 
 Modellerin performansını iyileştirmek için Optuna kütüphanesi kullanılmıştır. Bu kütüphane, hiperparametrelerin en verimli şekilde seçilmesine yardımcı olur. Bu sayede, her modelin tahmin başarısı artmış ve daha doğru sonuçlar elde edilmiştir.
 
